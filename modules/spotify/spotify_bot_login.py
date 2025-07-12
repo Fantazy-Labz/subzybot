@@ -9,7 +9,7 @@ import time
 import random
 import os
 from dotenv import load_dotenv
-
+#pip3 install anticaptchaofficial
 class SpotifyLogin:
     def __init__(self):
         # Configurar opciones de Chrome para evitar detección de bot
@@ -281,7 +281,7 @@ class SpotifyLogin:
 
 # Uso mejorado:
 if __name__ == "__main__":
-    load_dotenv
+    load_dotenv()
     spotify = SpotifyLogin()
 
     email = os.getenv("SPOTIFY_CLIENT_EMAIL")

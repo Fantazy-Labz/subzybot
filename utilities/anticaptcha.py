@@ -1,9 +1,14 @@
 from anticaptchaofficial.recaptchav2proxyless import *
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
 
 solver = recaptchaV2Proxyless()
 solver.set_verbose(1)
 solver.set_key("c5e932f34fb92d6cc9d5eb6a441afbee")
-solver.set_website_url("https://website.com")
+solver.set_website_url(os.getenv("CAPTCHA_API_KEY"))
 solver.set_website_key("SITE_KEY")
 #set optional custom parameter which Google made for their search page Recaptcha v2
 #solver.set_data_s('"data-s" token from Google Search results "protection"')
