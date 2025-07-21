@@ -30,21 +30,20 @@ class SpotifyBotAssignSpace:
 
     def assign_space(self, email, password, has_paid):
         try:
-            if not has_paid:
+            if  has_paid:
                 spotify_login = SpotifyLogin()  
                 logged_in = spotify_login.login(email, password) 
-                if not logged_in:
-                    raise Exception("Login failed")
 
-            self.driver.get("https://www.spotify.com/mx/account/family/")
-            
-            WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located((By.ID, "invite-link"))
-            )
+                if logged_in:
+                    self.driver.get("https://www.spotify.com/mx/account/family/")
+                    
+                    WebDriverWait(self.driver, 10).until(
+                        EC.presence_of_element_located((By.ID, "invite-link"))
+                    )
 
-            invite_input = self.driver.find_element(By.ID, "invite-link")
-            self.invitation_link = invite_input.get_attribute("value")
-            self.admin_address = email  
+                    invite_input = self.driver.find_element(By.ID, "invite-link")
+                    self.invitation_link = invite_input.get_attribute("value")
+                    self.admin_address = email  
 
         except TimeoutException:
             raise Exception("Timeout while trying to access family page")

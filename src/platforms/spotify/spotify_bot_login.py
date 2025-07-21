@@ -293,7 +293,6 @@ class SpotifyLogin:
         except:
             pass
 
-# Uso mejorado:
 if __name__ == "__main__":
     load_dotenv()
     spotify = SpotifyLogin()

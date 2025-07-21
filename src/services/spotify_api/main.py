@@ -40,7 +40,7 @@ async def add_user(user_data: SuscriptionRequest):
     try:
         #Usando la logica de automatizacion 
         bot = SpotifyBotAssignSpace()
-        invitation_link, admin_adress = bot.SpotifyBotAssignSpace.assign_space(
+        invitation_link, admin_adress = bot.assign_space(
             user_data.email,
             user_data.password,
             user_data.has_paid
