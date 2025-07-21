@@ -1,6 +1,3 @@
-
-
-
 # SpotifyLoginBot - Automatización de Inicio de Sesión en Spotify
 
 ##  Requisitos del Entorno
@@ -144,10 +141,3 @@ spotify_login_bot.py
 │
 └── main() → Función principal para iniciar el flujo completo
 ```
-
-
-
-
-
-
-

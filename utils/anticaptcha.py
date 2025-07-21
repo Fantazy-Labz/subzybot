@@ -1,4 +1,4 @@
-from anticaptchaofficial.recaptchav2proxyless import * #See more documentation at https://anti-captcha.com/es/apidoc
+from anticaptchaofficial.recaptchav2proxyless import * #See more documentation at https://anti-captcha.com/es/apidoc (pip install anticaptchaofficial)
 from dotenv import load_dotenv
 import os
 
