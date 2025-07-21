@@ -4,7 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import TimeoutException
-from platforms.spotify.spotify_bot_login import SpotifyLogin
+from src.platforms.spotify.spotify_bot_login import SpotifyLogin
 from dotenv import load_dotenv
 import os
 import time
