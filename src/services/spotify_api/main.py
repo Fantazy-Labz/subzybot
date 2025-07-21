@@ -1,7 +1,7 @@
 from fastapi import FastAPI, status, HTTPException
 from pydantic import BaseModel
 from fastapi.responses import JSONResponse
-from platforms.spotify.spotify_bot_assign_space import SpotifyBotAssignSpace
+from src.platforms.spotify.spotify_bot_assign_space import SpotifyBotAssignSpace
 
 app = FastAPI(title="Subsy Bot Endpoints", version="1.0.0")
 
@@ -39,7 +39,8 @@ async def create_account(user_data: SuscriptionRequest):
 async def add_user(user_data: SuscriptionRequest):
     try:
         #Usando la logica de automatizacion 
-        invitation_link, admin_adress = SpotifyBotAssignSpace.assign_space(
+        bot = SpotifyBotAssignSpace()
+        invitation_link, admin_adress = bot.SpotifyBotAssignSpace.assign_space(
             user_data.email,
             user_data.password,
             user_data.has_paid
