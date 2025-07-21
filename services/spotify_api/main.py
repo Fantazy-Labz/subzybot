@@ -1,7 +1,7 @@
 from fastapi import FastAPI, status, HTTPException
 from pydantic import BaseModel
 from fastapi.responses import JSONResponse
-from modules.spotify.spotify_bot_assign_space import SpotifyBotAssignSpace
+from platforms.spotify.spotify_bot_assign_space import SpotifyBotAssignSpace
 
 app = FastAPI(title="Subsy Bot Endpoints", version="1.0.0")
 
@@ -16,12 +16,12 @@ class SuscriptionResponse(BaseModel):
     invitation_link: str
     admin_adress: str
 
-
+"""
 @app.post("/new_account", status_code=status.HTTP_201_CREATED)
 async def create_account(user_data: SuscriptionRequest):
     try:
-        # Lógica de creación de cuenta (simulada o real)
-        success = True  # Simulación
+
+        success = True 
         if not success:
             raise Exception("No se pudo crear la cuenta")
 
@@ -32,12 +32,13 @@ async def create_account(user_data: SuscriptionRequest):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+"""
 
 
 @app.post("/add_user", response_model=SuscriptionResponse, status_code=status.HTTP_201_CREATED)
 async def add_user(user_data: SuscriptionRequest):
     try:
-        # Lógica real usando tu módulo
+        #Usando la logica de automatizacion 
         invitation_link, admin_adress = SpotifyBotAssignSpace.assign_space(
             user_data.email,
             user_data.password,
@@ -52,12 +53,12 @@ async def add_user(user_data: SuscriptionRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error al asignar espacio: {str(e)}")
 
-
+"""
 @app.post("/remove_user", status_code=status.HTTP_200_OK)
 async def remove_user(user_data: SuscriptionRequest):
     try:
-        # Lógica de eliminación (simulada o real)
-        removed = True  # Simulación
+
+        removed = True  
         if not removed:
             raise HTTPException(status_code=404, detail="Usuario no encontrado")
 
@@ -65,5 +66,6 @@ async def remove_user(user_data: SuscriptionRequest):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+"""
 
 
